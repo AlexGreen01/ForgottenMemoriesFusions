@@ -21,6 +21,7 @@ namespace ForgottenMemoriesFusions
         }
 
         List<Cards> YugiDex = new List<Cards>();
+        List<Fusions> FusionsList = new List<Fusions>();
 
         private void FusionMainForm_Load(object sender, EventArgs e)
         {
@@ -48,6 +49,35 @@ namespace ForgottenMemoriesFusions
                 ListViewItem item = new ListViewItem(card.getName());
                 lstAllCards.Items.Add(item);
             }
+            if (!File.Exists("FusionObjects.bin"))
+            {
+                lines = File.ReadAllLines("AllFusions.txt");
+                foreach (string line in lines)
+                {
+                    string[] card = line.Split('/');
+                    Fusions new_fusion = new Fusions();
+                    new_fusion.setName(card[0]);
+                    string[] mat1 = card[1].Split(',');
+                    new_fusion.setMat1(mat1);
+                    string[] mat2 = card[2].Split(',');
+                    new_fusion.setMat2(mat2);
+                    FusionsList.Add(new_fusion);
+                }
+                using (Stream stream = File.Open("FusionObjects.bin", FileMode.Create))
+                {
+                    var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                    bformatter.Serialize(stream, FusionsList);
+                }
+            }
+            else
+            {
+                using (Stream stream = File.Open("FusionObjects.bin", FileMode.Open))
+                {
+                    var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                    FusionsList = (List<Fusions>)bformatter.Deserialize(stream);
+                }
+            }
+
         }
     }
 }
