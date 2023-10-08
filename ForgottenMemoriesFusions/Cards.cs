@@ -16,6 +16,14 @@ namespace ForgottenMemoriesFusions
 
         public Cards() { }
 
+        public Cards(Cards card)
+        {
+            this.name = card.name;
+            this.type = card.type;
+            this.atk = card.atk;
+            this.def = card.def;
+        }
+
         public void setName(string _name)
         {
             name = _name;
@@ -54,11 +62,6 @@ namespace ForgottenMemoriesFusions
         public int getDef()
         {
             return def;
-        }
-
-        public void Display()
-        {
-            
         }
     }
 }

@@ -93,6 +93,10 @@ namespace ForgottenMemoriesFusions
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            lstFusions.Items.Clear();
+            lstMaterial3.Items.Clear();
+            lstMaterial4.Items.Clear();
+            lstMaterial5.Items.Clear();
             int check = checkBoxes();
             if (check > 0)
             {
@@ -100,20 +104,25 @@ namespace ForgottenMemoriesFusions
             }
             else
             {
-                Cards[] hand = new Cards[5];
+                List<Cards> hand = new List<Cards>();
                 string[] input = new string[5];
                 input[0] = txtHand1.Text;
                 input[1] = txtHand2.Text;
                 input[2] = txtHand3.Text;
                 input[3] = txtHand4.Text;
                 input[4] = txtHand5.Text;
-                foreach (Cards card in YugiDex)
+                for (int i = 0; i < input.Length; i++)
                 {
-                    for (int i = 0; i < input.Length; i++)
+                    foreach (Cards card in YugiDex)
                     { 
                         if (input[i] == card.getName())
                         {
-                            hand[i] = card;
+                            Cards add_new = new Cards();
+                            add_new.setName(card.getName());
+                            add_new.setType(card.getType());
+                            add_new.setAtk(card.getAtk());
+                            add_new.setDef(card.getDef());
+                            hand.Add(add_new);
                         }
                     }
                 }
@@ -121,19 +130,48 @@ namespace ForgottenMemoriesFusions
             }
         }
 
-        private void findFusions(Cards[] hand)
+        private void findFusions(List<Cards> hand)
         {
-            for (int i = 0; i < hand.Length; i++)
+            string material1 = "";
+            string material2 = "";
+            List<Cards> temp_hand = new List<Cards>();
+            foreach (Cards cards in hand)
+            {
+                Cards add_new = new Cards();
+                add_new.setName(cards.getName());
+                add_new.setType(cards.getType());
+                add_new.setAtk(cards.getAtk());
+                add_new.setDef(cards.getDef());
+                temp_hand.Add(add_new);
+            }
+            for (int i = 0; i < hand.Count; i++)
             {
                 foreach (Fusions fusion in FusionsList)
                 {
                     if (fusion.getMat1().Contains(hand[i].getName()))
                     {
-                        foreach (Cards hand2 in hand)
+                        for (int j = 0; j < hand.Count; j++)
                         {
-                            if (fusion.getMat2().Contains(hand2.getName()) && hand[i] != hand2)
+                            if (fusion.getMat2().Contains(hand[j].getName()) && hand[i] != hand[j])
                             {
-                                DisplayFusion(hand[i], hand2, fusion);
+                                material1 = hand[i].getName();
+                                material2 = hand[j].getName();
+                                switch(hand.Count)
+                                {
+                                    case 5:
+                                        DisplayFusion(hand[i], hand[j], fusion, lstFusions);
+                                        break;
+                                    case 4:
+                                        DisplayFusion(hand[i], hand[j], fusion, lstMaterial3);
+                                        break;
+                                    case 3:
+                                        DisplayFusion(hand[i], hand[j], fusion, lstMaterial4);
+                                        break;
+                                    case 2:
+                                        DisplayFusion(hand[i], hand[j], fusion, lstMaterial5);
+                                        break;
+                                }
+                                hand = checkNextSummon(material1, material2, fusion, temp_hand);
                             }
                         }
                     }
@@ -169,22 +207,68 @@ namespace ForgottenMemoriesFusions
             }
         }
 
-        private void DisplayFusion(Cards mat1, Cards mat2, Fusions summon)
+        private void DisplayFusion(Cards mat1, Cards mat2, Fusions summon, ListView list_name)
         {
-            Cards summonDetails = new Cards();
-            foreach (Cards cards in YugiDex)
-            {
-                if (summon.getName() == cards.getName())
-                {
-                    summonDetails = cards;
-                }
-            }
-            ListViewItem list = new ListViewItem(mat1.getName());
+            Cards summonDetails = new Cards(fusionToCard(summon));
+            ListViewItem list = new ListViewItem();
+            list.Text = mat1.getName();
             list.SubItems.Add(mat2.getName());
             list.SubItems.Add(summon.getName());
             list.SubItems.Add(summonDetails.getAtk().ToString());
             list.SubItems.Add(summonDetails.getDef().ToString());
-            lstFusions.Items.Add(list);
+
+            if (checkDuplicateList(list))
+            {
+                list_name.Items.Add(list);
+            }
+        }
+
+        private bool checkDuplicateList(ListViewItem list)
+        {
+            foreach (ListViewItem item in lstFusions.Items)
+            {
+                if (item.SubItems[0].Text == list.SubItems[0].Text && item.SubItems[1].Text == list.SubItems[1].Text)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private List<Cards> checkNextSummon(string remove, string change, Fusions fusion, List<Cards> hand)
+        {
+            for (int i = 0; i < hand.Count; i++)
+            {
+                if (hand[i].getName() == remove)
+                {
+                    hand.RemoveAt(i);
+                    break;
+                }
+            }
+            for (int j = 0; j < hand.Count; j++)
+            {
+                if (hand[j].getName() == change)
+                {
+                    hand[j] = fusionToCard(fusion);
+                    int fusionIndex = j;
+                    break;
+                }
+            }
+            return hand;
+        }
+
+        private Cards fusionToCard(Fusions fusion)
+        {
+            Cards summonDetails = new Cards();
+            foreach (Cards cards in YugiDex)
+            {
+                if (fusion.getName() == cards.getName())
+                {
+                    summonDetails = cards;
+                    break;
+                }
+            }
+            return summonDetails;
         }
     }
 }
