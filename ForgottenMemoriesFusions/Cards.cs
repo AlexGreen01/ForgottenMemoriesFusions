@@ -14,6 +14,8 @@ namespace ForgottenMemoriesFusions
         private int atk;
         private int def;
 
+        public Cards() { }
+
         public void setName(string _name)
         {
             name = _name;

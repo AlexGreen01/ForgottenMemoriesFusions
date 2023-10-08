@@ -22,6 +22,7 @@ namespace ForgottenMemoriesFusions
 
         List<Cards> YugiDex = new List<Cards>();
         List<Fusions> FusionsList = new List<Fusions>();
+        List<string> NameList = new List<string>();
 
         private void FusionMainForm_Load(object sender, EventArgs e)
         {
@@ -31,6 +32,7 @@ namespace ForgottenMemoriesFusions
                 string[] card = line.Split(',');
                 Cards new_card = new Cards();
                 new_card.setName(card[0]);
+                NameList.Add(new_card.getName());
                 new_card.setType(card[1].Remove(0, 1));
                 if (card.Contains(" N/A"))
                 {
@@ -77,7 +79,112 @@ namespace ForgottenMemoriesFusions
                     FusionsList = (List<Fusions>)bformatter.Deserialize(stream);
                 }
             }
+            var auto = new AutoCompleteStringCollection();
+            foreach (Cards card in YugiDex) 
+            {
+                auto.Add(card.getName());
+            }
+            txtHand1.AutoCompleteCustomSource = auto;
+            txtHand2.AutoCompleteCustomSource = auto;
+            txtHand3.AutoCompleteCustomSource = auto;
+            txtHand4.AutoCompleteCustomSource = auto;
+            txtHand5.AutoCompleteCustomSource = auto;
+        }
 
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            int check = checkBoxes();
+            if (check > 0)
+            {
+                MessageBox.Show("Text Box " + check + " Doesnt Contain A Valid Card Name.", "Invalid Card Name Entered", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Cards[] hand = new Cards[5];
+                string[] input = new string[5];
+                input[0] = txtHand1.Text;
+                input[1] = txtHand2.Text;
+                input[2] = txtHand3.Text;
+                input[3] = txtHand4.Text;
+                input[4] = txtHand5.Text;
+                foreach (Cards card in YugiDex)
+                {
+                    for (int i = 0; i < input.Length; i++)
+                    { 
+                        if (input[i] == card.getName())
+                        {
+                            hand[i] = card;
+                        }
+                    }
+                }
+                findFusions(hand);
+            }
+        }
+
+        private void findFusions(Cards[] hand)
+        {
+            for (int i = 0; i < hand.Length; i++)
+            {
+                foreach (Fusions fusion in FusionsList)
+                {
+                    if (fusion.getMat1().Contains(hand[i].getName()))
+                    {
+                        foreach (Cards hand2 in hand)
+                        {
+                            if (fusion.getMat2().Contains(hand2.getName()) && hand[i] != hand2)
+                            {
+                                DisplayFusion(hand[i], hand2, fusion);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private int checkBoxes()
+        {
+            if (!NameList.Contains(txtHand1.Text))
+            {
+                return 1;
+            }
+            else if (!NameList.Contains(txtHand2.Text))
+            {
+                return 2;
+            }
+            else if (!NameList.Contains(txtHand3.Text))
+            {
+                return 3;
+            }
+            else if (!NameList.Contains(txtHand4.Text))
+            {
+                return 4;
+            }
+            else if (!NameList.Contains(txtHand5.Text))
+            {
+                return 5;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        private void DisplayFusion(Cards mat1, Cards mat2, Fusions summon)
+        {
+            Cards summonDetails = new Cards();
+            foreach (Cards cards in YugiDex)
+            {
+                if (summon.getName() == cards.getName())
+                {
+                    summonDetails = cards;
+                }
+            }
+            ListViewItem list = new ListViewItem(mat1.getName());
+            list.SubItems.Add(mat2.getName());
+            list.SubItems.Add(summon.getName());
+            list.SubItems.Add(summonDetails.getAtk().ToString());
+            list.SubItems.Add(summonDetails.getDef().ToString());
+            lstFusions.Items.Add(list);
         }
     }
 }

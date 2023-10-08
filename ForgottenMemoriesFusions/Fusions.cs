@@ -14,6 +14,8 @@ namespace ForgottenMemoriesFusions
         private string[] material1;
         private string[] material2;
 
+        public Fusions() { }
+
         public void setName(string _name)
         {
             name = _name;
