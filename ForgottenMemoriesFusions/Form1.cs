@@ -1,14 +1,7 @@
 ﻿using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ForgottenMemoriesFusions
@@ -132,18 +125,6 @@ namespace ForgottenMemoriesFusions
 
         private void findFusions(List<Cards> hand)
         {
-            string material1 = "";
-            string material2 = "";
-            List<Cards> temp_hand = new List<Cards>();
-            foreach (Cards cards in hand)
-            {
-                Cards add_new = new Cards();
-                add_new.setName(cards.getName());
-                add_new.setType(cards.getType());
-                add_new.setAtk(cards.getAtk());
-                add_new.setDef(cards.getDef());
-                temp_hand.Add(add_new);
-            }
             for (int i = 0; i < hand.Count; i++)
             {
                 foreach (Fusions fusion in FusionsList)
@@ -154,24 +135,11 @@ namespace ForgottenMemoriesFusions
                         {
                             if (fusion.getMat2().Contains(hand[j].getName()) && hand[i] != hand[j])
                             {
-                                material1 = hand[i].getName();
-                                material2 = hand[j].getName();
-                                switch(hand.Count)
-                                {
-                                    case 5:
-                                        DisplayFusion(hand[i], hand[j], fusion, lstFusions);
-                                        break;
-                                    case 4:
-                                        DisplayFusion(hand[i], hand[j], fusion, lstMaterial3);
-                                        break;
-                                    case 3:
-                                        DisplayFusion(hand[i], hand[j], fusion, lstMaterial4);
-                                        break;
-                                    case 2:
-                                        DisplayFusion(hand[i], hand[j], fusion, lstMaterial5);
-                                        break;
-                                }
-                                hand = checkNextSummon(material1, material2, fusion, temp_hand);
+                                string material1 = hand[i].getName();
+                                string material2 = hand[j].getName();
+
+                                DisplayFusion(hand[i], hand[j], fusion, lstFusions);
+                                checkNextSummon(material1, material2, fusion, hand);
                             }
                         }
                     }
@@ -235,26 +203,87 @@ namespace ForgottenMemoriesFusions
             return true;
         }
 
-        private List<Cards> checkNextSummon(string remove, string change, Fusions fusion, List<Cards> hand)
+        private void checkNextSummon(string remove, string change, Fusions summon, List<Cards> hand)
         {
-            for (int i = 0; i < hand.Count; i++)
+            int fusionIndex = -1;
+            List<Cards> temp_hand = new List<Cards>();
+            foreach (Cards cards in hand)
             {
-                if (hand[i].getName() == remove)
+                Cards add_new = new Cards();
+                add_new.setName(cards.getName());
+                add_new.setType(cards.getType());
+                add_new.setAtk(cards.getAtk());
+                add_new.setDef(cards.getDef());
+                temp_hand.Add(add_new);
+            }
+            for (int i = 0; i < temp_hand.Count; i++)
+            {
+                if (temp_hand[i].getName() == remove)
                 {
-                    hand.RemoveAt(i);
+                    temp_hand.RemoveAt(i);
                     break;
                 }
             }
-            for (int j = 0; j < hand.Count; j++)
+            for (int j = 0; j < temp_hand.Count; j++)
             {
-                if (hand[j].getName() == change)
+                if (temp_hand[j].getName() == change)
                 {
-                    hand[j] = fusionToCard(fusion);
-                    int fusionIndex = j;
+                    temp_hand[j] = fusionToCard(summon);
+                    fusionIndex = j;
                     break;
                 }
             }
-            return hand;
+            foreach (Fusions fusions in FusionsList)
+            {
+                if (fusions.getMat1().Contains(temp_hand[fusionIndex].getName()))
+                {
+                    for (int j = 0; j < temp_hand.Count; j++)
+                    {
+                        if (fusions.getMat2().Contains(temp_hand[j].getName()) && temp_hand[fusionIndex] != temp_hand[j])
+                        {
+                            string material1 = temp_hand[fusionIndex].getName();
+                            string material2 = temp_hand[j].getName();
+                            switch(temp_hand.Count)
+                            {
+                                case 4:
+                                    DisplayFusion(temp_hand[fusionIndex], temp_hand[j], fusions, lstMaterial3);
+                                    break;
+                                case 3:
+                                    DisplayFusion(temp_hand[fusionIndex], temp_hand[j], fusions, lstMaterial4);
+                                    break;
+                                case 2:
+                                    DisplayFusion(temp_hand[fusionIndex], temp_hand[j], fusions, lstMaterial5);
+                                    break;
+                            }
+                            checkNextSummon(material1, material2, fusions, temp_hand);
+                        }
+                    }
+                }
+                if (fusions.getMat2().Contains(temp_hand[fusionIndex].getName()))
+                {
+                    for (int j = 0; j < temp_hand.Count; j++)
+                    {
+                        if (fusions.getMat1().Contains(temp_hand[j].getName()) && temp_hand[fusionIndex] != temp_hand[j])
+                        {
+                            string material1 = temp_hand[fusionIndex].getName();
+                            string material2 = temp_hand[j].getName();
+                            switch (temp_hand.Count)
+                            {
+                                case 4:
+                                    DisplayFusion(temp_hand[fusionIndex], temp_hand[j], fusions, lstMaterial3);
+                                    break;
+                                case 3:
+                                    DisplayFusion(temp_hand[fusionIndex], temp_hand[j], fusions, lstMaterial4);
+                                    break;
+                                case 2:
+                                    DisplayFusion(temp_hand[fusionIndex], temp_hand[j], fusions, lstMaterial5);
+                                    break;
+                            }
+                            checkNextSummon(material1, material2, fusions, temp_hand);
+                        }
+                    }
+                }
+            }
         }
 
         private Cards fusionToCard(Fusions fusion)
