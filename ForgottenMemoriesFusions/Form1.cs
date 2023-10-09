@@ -200,6 +200,27 @@ namespace ForgottenMemoriesFusions
                     return false;
                 }
             }
+            foreach (ListViewItem item in lstMaterial3.Items)
+            {
+                if (item.SubItems[0].Text == list.SubItems[0].Text && item.SubItems[1].Text == list.SubItems[1].Text)
+                {
+                    return false;
+                }
+            }
+            foreach (ListViewItem item in lstMaterial4.Items)
+            {
+                if (item.SubItems[0].Text == list.SubItems[0].Text && item.SubItems[1].Text == list.SubItems[1].Text)
+                {
+                    return false;
+                }
+            }
+            foreach (ListViewItem item in lstMaterial5.Items)
+            {
+                if (item.SubItems[0].Text == list.SubItems[0].Text && item.SubItems[1].Text == list.SubItems[1].Text)
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
