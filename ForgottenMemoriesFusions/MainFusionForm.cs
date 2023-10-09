@@ -39,11 +39,6 @@ namespace ForgottenMemoriesFusions
                 }
                 YugiDex.Add(new_card);
             }
-            foreach (Cards card in YugiDex)
-            {
-                ListViewItem item = new ListViewItem(card.getName());
-                lstAllCards.Items.Add(item);
-            }
             if (!File.Exists("FusionObjects.bin"))
             {
                 lines = File.ReadAllLines("AllFusions.txt");

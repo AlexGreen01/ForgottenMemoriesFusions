@@ -32,10 +32,9 @@
             this.columnMaterial1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnMaterial2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnSummon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnAtk = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnDef = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbLstFusions = new System.Windows.Forms.Label();
-            this.lstAllCards = new System.Windows.Forms.ListView();
-            this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lbAllCards = new System.Windows.Forms.Label();
             this.lbHand = new System.Windows.Forms.Label();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.txtHand1 = new System.Windows.Forms.TextBox();
@@ -43,15 +42,13 @@
             this.txtHand3 = new System.Windows.Forms.TextBox();
             this.txtHand4 = new System.Windows.Forms.TextBox();
             this.txtHand5 = new System.Windows.Forms.TextBox();
-            this.columnAtk = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnDef = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lstMaterial3 = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.columnOtherMat3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnMaterial3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnFusion3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAtk3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDef3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnOtherMat3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
             this.lstMaterial4 = new System.Windows.Forms.ListView();
             this.columnOtherMat4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnMaterial4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -70,17 +67,21 @@
             // 
             // lstFusions
             // 
+            this.lstFusions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
             this.lstFusions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnMaterial1,
             this.columnMaterial2,
             this.columnSummon,
             this.columnAtk,
             this.columnDef});
+            this.lstFusions.Font = new System.Drawing.Font("Yu Mincho Demibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstFusions.ForeColor = System.Drawing.SystemColors.Info;
             this.lstFusions.FullRowSelect = true;
+            this.lstFusions.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstFusions.HideSelection = false;
-            this.lstFusions.Location = new System.Drawing.Point(264, 48);
+            this.lstFusions.Location = new System.Drawing.Point(281, 48);
             this.lstFusions.Name = "lstFusions";
-            this.lstFusions.Size = new System.Drawing.Size(372, 401);
+            this.lstFusions.Size = new System.Drawing.Size(375, 214);
             this.lstFusions.TabIndex = 0;
             this.lstFusions.UseCompatibleStateImageBehavior = false;
             this.lstFusions.View = System.Windows.Forms.View.Details;
@@ -100,46 +101,31 @@
             this.columnSummon.Text = "Summons:";
             this.columnSummon.Width = 110;
             // 
+            // columnAtk
+            // 
+            this.columnAtk.Text = "ATK";
+            this.columnAtk.Width = 40;
+            // 
+            // columnDef
+            // 
+            this.columnDef.Text = "DEF";
+            this.columnDef.Width = 40;
+            // 
             // lbLstFusions
             // 
             this.lbLstFusions.AutoSize = true;
-            this.lbLstFusions.Location = new System.Drawing.Point(261, 29);
+            this.lbLstFusions.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbLstFusions.Location = new System.Drawing.Point(278, 29);
             this.lbLstFusions.Name = "lbLstFusions";
             this.lbLstFusions.Size = new System.Drawing.Size(85, 13);
             this.lbLstFusions.TabIndex = 1;
             this.lbLstFusions.Text = "Possible Fusions";
             // 
-            // lstAllCards
-            // 
-            this.lstAllCards.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnName});
-            this.lstAllCards.FullRowSelect = true;
-            this.lstAllCards.HideSelection = false;
-            this.lstAllCards.Location = new System.Drawing.Point(46, 585);
-            this.lstAllCards.Name = "lstAllCards";
-            this.lstAllCards.Size = new System.Drawing.Size(182, 401);
-            this.lstAllCards.TabIndex = 2;
-            this.lstAllCards.UseCompatibleStateImageBehavior = false;
-            this.lstAllCards.View = System.Windows.Forms.View.Details;
-            // 
-            // columnName
-            // 
-            this.columnName.Text = "Card Name:";
-            this.columnName.Width = 181;
-            // 
-            // lbAllCards
-            // 
-            this.lbAllCards.AutoSize = true;
-            this.lbAllCards.Location = new System.Drawing.Point(43, 566);
-            this.lbAllCards.Name = "lbAllCards";
-            this.lbAllCards.Size = new System.Drawing.Size(94, 13);
-            this.lbAllCards.TabIndex = 5;
-            this.lbAllCards.Text = "All Cards In Game:";
-            // 
             // lbHand
             // 
             this.lbHand.AutoSize = true;
-            this.lbHand.Location = new System.Drawing.Point(17, 34);
+            this.lbHand.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbHand.Location = new System.Drawing.Point(27, 34);
             this.lbHand.Name = "lbHand";
             this.lbHand.Size = new System.Drawing.Size(64, 13);
             this.lbHand.TabIndex = 11;
@@ -147,7 +133,9 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(17, 222);
+            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerate.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnGenerate.Location = new System.Drawing.Point(27, 222);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(138, 40);
             this.btnGenerate.TabIndex = 12;
@@ -159,7 +147,7 @@
             // 
             this.txtHand1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtHand1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtHand1.Location = new System.Drawing.Point(17, 53);
+            this.txtHand1.Location = new System.Drawing.Point(27, 53);
             this.txtHand1.Name = "txtHand1";
             this.txtHand1.Size = new System.Drawing.Size(211, 20);
             this.txtHand1.TabIndex = 13;
@@ -168,7 +156,7 @@
             // 
             this.txtHand2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtHand2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtHand2.Location = new System.Drawing.Point(17, 87);
+            this.txtHand2.Location = new System.Drawing.Point(27, 87);
             this.txtHand2.Name = "txtHand2";
             this.txtHand2.Size = new System.Drawing.Size(211, 20);
             this.txtHand2.TabIndex = 14;
@@ -177,7 +165,7 @@
             // 
             this.txtHand3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtHand3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtHand3.Location = new System.Drawing.Point(17, 121);
+            this.txtHand3.Location = new System.Drawing.Point(27, 121);
             this.txtHand3.Name = "txtHand3";
             this.txtHand3.Size = new System.Drawing.Size(211, 20);
             this.txtHand3.TabIndex = 15;
@@ -186,7 +174,7 @@
             // 
             this.txtHand4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtHand4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtHand4.Location = new System.Drawing.Point(17, 155);
+            this.txtHand4.Location = new System.Drawing.Point(27, 155);
             this.txtHand4.Name = "txtHand4";
             this.txtHand4.Size = new System.Drawing.Size(211, 20);
             this.txtHand4.TabIndex = 16;
@@ -195,45 +183,35 @@
             // 
             this.txtHand5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtHand5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtHand5.Location = new System.Drawing.Point(17, 189);
+            this.txtHand5.Location = new System.Drawing.Point(27, 189);
             this.txtHand5.Name = "txtHand5";
             this.txtHand5.Size = new System.Drawing.Size(211, 20);
             this.txtHand5.TabIndex = 17;
             // 
-            // columnAtk
-            // 
-            this.columnAtk.Text = "ATK";
-            this.columnAtk.Width = 40;
-            // 
-            // columnDef
-            // 
-            this.columnDef.Text = "DEF";
-            this.columnDef.Width = 40;
-            // 
             // lstMaterial3
             // 
+            this.lstMaterial3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
             this.lstMaterial3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnOtherMat3,
             this.columnMaterial3,
             this.columnFusion3,
             this.columnAtk3,
             this.columnDef3});
+            this.lstMaterial3.Font = new System.Drawing.Font("Yu Mincho Demibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstMaterial3.ForeColor = System.Drawing.SystemColors.Info;
+            this.lstMaterial3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstMaterial3.HideSelection = false;
-            this.lstMaterial3.Location = new System.Drawing.Point(667, 48);
+            this.lstMaterial3.Location = new System.Drawing.Point(689, 48);
             this.lstMaterial3.Name = "lstMaterial3";
-            this.lstMaterial3.Size = new System.Drawing.Size(372, 401);
+            this.lstMaterial3.Size = new System.Drawing.Size(375, 214);
             this.lstMaterial3.TabIndex = 18;
             this.lstMaterial3.UseCompatibleStateImageBehavior = false;
             this.lstMaterial3.View = System.Windows.Forms.View.Details;
             // 
-            // label1
+            // columnOtherMat3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(664, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Previous Fusions + Material";
+            this.columnOtherMat3.Text = "Material:";
+            this.columnOtherMat3.Width = 90;
             // 
             // columnMaterial3
             // 
@@ -255,23 +233,32 @@
             this.columnDef3.Text = "DEF";
             this.columnDef3.Width = 40;
             // 
-            // columnOtherMat3
+            // label1
             // 
-            this.columnOtherMat3.Text = "Material:";
-            this.columnOtherMat3.Width = 90;
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(686, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Previous Fusions + Material";
             // 
             // lstMaterial4
             // 
+            this.lstMaterial4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
             this.lstMaterial4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnOtherMat4,
             this.columnMaterial4,
             this.columnFusion4,
             this.columnAtk4,
             this.columnDef4});
+            this.lstMaterial4.Font = new System.Drawing.Font("Yu Mincho Demibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstMaterial4.ForeColor = System.Drawing.SystemColors.Info;
+            this.lstMaterial4.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstMaterial4.HideSelection = false;
-            this.lstMaterial4.Location = new System.Drawing.Point(1071, 48);
+            this.lstMaterial4.Location = new System.Drawing.Point(1098, 48);
             this.lstMaterial4.Name = "lstMaterial4";
-            this.lstMaterial4.Size = new System.Drawing.Size(372, 401);
+            this.lstMaterial4.Size = new System.Drawing.Size(375, 214);
             this.lstMaterial4.TabIndex = 20;
             this.lstMaterial4.UseCompatibleStateImageBehavior = false;
             this.lstMaterial4.View = System.Windows.Forms.View.Details;
@@ -304,7 +291,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1068, 29);
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(1095, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(136, 13);
             this.label2.TabIndex = 21;
@@ -312,16 +300,20 @@
             // 
             // lstMaterial5
             // 
+            this.lstMaterial5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
             this.lstMaterial5.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnOtherMat5,
             this.columnMaterial5,
             this.columnFusion5,
             this.columnAtk5,
             this.columnDef5});
+            this.lstMaterial5.Font = new System.Drawing.Font("Yu Mincho Demibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstMaterial5.ForeColor = System.Drawing.SystemColors.Info;
+            this.lstMaterial5.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstMaterial5.HideSelection = false;
-            this.lstMaterial5.Location = new System.Drawing.Point(1471, 48);
+            this.lstMaterial5.Location = new System.Drawing.Point(1505, 48);
             this.lstMaterial5.Name = "lstMaterial5";
-            this.lstMaterial5.Size = new System.Drawing.Size(404, 401);
+            this.lstMaterial5.Size = new System.Drawing.Size(375, 214);
             this.lstMaterial5.TabIndex = 22;
             this.lstMaterial5.UseCompatibleStateImageBehavior = false;
             this.lstMaterial5.View = System.Windows.Forms.View.Details;
@@ -354,7 +346,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1468, 29);
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(1502, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(136, 13);
             this.label3.TabIndex = 23;
@@ -364,7 +357,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(3)))), ((int)(((byte)(3)))));
+            this.ClientSize = new System.Drawing.Size(1904, 331);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lstMaterial5);
             this.Controls.Add(this.label2);
@@ -378,10 +372,9 @@
             this.Controls.Add(this.txtHand1);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.lbHand);
-            this.Controls.Add(this.lbAllCards);
-            this.Controls.Add(this.lstAllCards);
             this.Controls.Add(this.lbLstFusions);
             this.Controls.Add(this.lstFusions);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FusionMainForm";
             this.Text = "Fusion Summons Forgotten Memories";
             this.Load += new System.EventHandler(this.FusionMainForm_Load);
@@ -397,9 +390,6 @@
         private System.Windows.Forms.ColumnHeader columnMaterial2;
         private System.Windows.Forms.ColumnHeader columnSummon;
         private System.Windows.Forms.Label lbLstFusions;
-        private System.Windows.Forms.ListView lstAllCards;
-        private System.Windows.Forms.ColumnHeader columnName;
-        private System.Windows.Forms.Label lbAllCards;
         private System.Windows.Forms.Label lbHand;
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.TextBox txtHand1;

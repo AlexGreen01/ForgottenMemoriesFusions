@@ -46,18 +46,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cards.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="AllCardsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AllCardsForm.Designer.cs">
+      <DependentUpon>AllCardsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CardEffects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CardEffects.Designer.cs">
+      <DependentUpon>CardEffects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cards.cs" />
+    <Compile Include="MainFusionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFusionForm.Designer.cs">
+      <DependentUpon>MainFusionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Fusions.cs" />
+    <Compile Include="MainPageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPageForm.Designer.cs">
+      <DependentUpon>MainPageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AllCardsForm.resx">
+      <DependentUpon>AllCardsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CardEffects.resx">
+      <DependentUpon>CardEffects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFusionForm.resx">
+      <DependentUpon>MainFusionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPageForm.resx">
+      <DependentUpon>MainPageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
