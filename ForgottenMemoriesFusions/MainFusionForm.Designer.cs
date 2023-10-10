@@ -114,39 +114,45 @@
             // lbLstFusions
             // 
             this.lbLstFusions.AutoSize = true;
+            this.lbLstFusions.Font = new System.Drawing.Font("Yu Mincho", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLstFusions.ForeColor = System.Drawing.SystemColors.Control;
             this.lbLstFusions.Location = new System.Drawing.Point(278, 29);
             this.lbLstFusions.Name = "lbLstFusions";
-            this.lbLstFusions.Size = new System.Drawing.Size(85, 13);
+            this.lbLstFusions.Size = new System.Drawing.Size(88, 14);
             this.lbLstFusions.TabIndex = 1;
             this.lbLstFusions.Text = "Possible Fusions";
             // 
             // lbHand
             // 
             this.lbHand.AutoSize = true;
+            this.lbHand.Font = new System.Drawing.Font("Yu Mincho", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHand.ForeColor = System.Drawing.SystemColors.Control;
             this.lbHand.Location = new System.Drawing.Point(27, 34);
             this.lbHand.Name = "lbHand";
-            this.lbHand.Size = new System.Drawing.Size(64, 13);
+            this.lbHand.Size = new System.Drawing.Size(65, 14);
             this.lbHand.TabIndex = 11;
             this.lbHand.Text = "Enter Hand:";
             // 
             // btnGenerate
             // 
+            this.btnGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(3)))), ((int)(((byte)(3)))));
             this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerate.Font = new System.Drawing.Font("Yu Mincho", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerate.ForeColor = System.Drawing.SystemColors.Control;
             this.btnGenerate.Location = new System.Drawing.Point(27, 222);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(138, 40);
+            this.btnGenerate.Size = new System.Drawing.Size(160, 40);
             this.btnGenerate.TabIndex = 12;
             this.btnGenerate.Text = "Check Possible Fusions:";
-            this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.UseVisualStyleBackColor = false;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // txtHand1
             // 
             this.txtHand1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtHand1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtHand1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(3)))), ((int)(((byte)(3)))));
+            this.txtHand1.ForeColor = System.Drawing.SystemColors.Window;
             this.txtHand1.Location = new System.Drawing.Point(27, 53);
             this.txtHand1.Name = "txtHand1";
             this.txtHand1.Size = new System.Drawing.Size(211, 20);
@@ -156,6 +162,8 @@
             // 
             this.txtHand2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtHand2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtHand2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(3)))), ((int)(((byte)(3)))));
+            this.txtHand2.ForeColor = System.Drawing.SystemColors.Window;
             this.txtHand2.Location = new System.Drawing.Point(27, 87);
             this.txtHand2.Name = "txtHand2";
             this.txtHand2.Size = new System.Drawing.Size(211, 20);
@@ -165,6 +173,8 @@
             // 
             this.txtHand3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtHand3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtHand3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(3)))), ((int)(((byte)(3)))));
+            this.txtHand3.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.txtHand3.Location = new System.Drawing.Point(27, 121);
             this.txtHand3.Name = "txtHand3";
             this.txtHand3.Size = new System.Drawing.Size(211, 20);
@@ -174,6 +184,8 @@
             // 
             this.txtHand4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtHand4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtHand4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(3)))), ((int)(((byte)(3)))));
+            this.txtHand4.ForeColor = System.Drawing.SystemColors.Window;
             this.txtHand4.Location = new System.Drawing.Point(27, 155);
             this.txtHand4.Name = "txtHand4";
             this.txtHand4.Size = new System.Drawing.Size(211, 20);
@@ -183,6 +195,8 @@
             // 
             this.txtHand5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtHand5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtHand5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(3)))), ((int)(((byte)(3)))));
+            this.txtHand5.ForeColor = System.Drawing.SystemColors.Window;
             this.txtHand5.Location = new System.Drawing.Point(27, 189);
             this.txtHand5.Name = "txtHand5";
             this.txtHand5.Size = new System.Drawing.Size(211, 20);
@@ -199,6 +213,7 @@
             this.columnDef3});
             this.lstMaterial3.Font = new System.Drawing.Font("Yu Mincho Demibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstMaterial3.ForeColor = System.Drawing.SystemColors.Info;
+            this.lstMaterial3.FullRowSelect = true;
             this.lstMaterial3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstMaterial3.HideSelection = false;
             this.lstMaterial3.Location = new System.Drawing.Point(689, 48);
@@ -236,10 +251,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Yu Mincho", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(686, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 13);
+            this.label1.Size = new System.Drawing.Size(143, 14);
             this.label1.TabIndex = 19;
             this.label1.Text = "Previous Fusions + Material";
             // 
@@ -254,6 +270,7 @@
             this.columnDef4});
             this.lstMaterial4.Font = new System.Drawing.Font("Yu Mincho Demibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstMaterial4.ForeColor = System.Drawing.SystemColors.Info;
+            this.lstMaterial4.FullRowSelect = true;
             this.lstMaterial4.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstMaterial4.HideSelection = false;
             this.lstMaterial4.Location = new System.Drawing.Point(1098, 48);
@@ -291,10 +308,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Yu Mincho", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(1095, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 13);
+            this.label2.Size = new System.Drawing.Size(143, 14);
             this.label2.TabIndex = 21;
             this.label2.Text = "Previous Fusions + Material";
             // 
@@ -309,6 +327,7 @@
             this.columnDef5});
             this.lstMaterial5.Font = new System.Drawing.Font("Yu Mincho Demibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstMaterial5.ForeColor = System.Drawing.SystemColors.Info;
+            this.lstMaterial5.FullRowSelect = true;
             this.lstMaterial5.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstMaterial5.HideSelection = false;
             this.lstMaterial5.Location = new System.Drawing.Point(1505, 48);
@@ -346,10 +365,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Yu Mincho", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
             this.label3.Location = new System.Drawing.Point(1502, 29);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 13);
+            this.label3.Size = new System.Drawing.Size(143, 14);
             this.label3.TabIndex = 23;
             this.label3.Text = "Previous Fusions + Material";
             // 
@@ -357,8 +377,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(3)))), ((int)(((byte)(3)))));
-            this.ClientSize = new System.Drawing.Size(1904, 331);
+            this.ClientSize = new System.Drawing.Size(1184, 331);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lstMaterial5);
             this.Controls.Add(this.label2);

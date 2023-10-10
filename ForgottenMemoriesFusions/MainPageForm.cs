@@ -76,7 +76,7 @@ namespace ForgottenMemoriesFusions
                 if (otherBtns.GetType() == typeof(Button))
                 {
                     otherBtns.BackColor = Color.FromArgb(6, 3, 3);
-                    otherBtns.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular);
+                    otherBtns.Font = new Font("Yu Mincho", 9F, FontStyle.Regular);
                 }
             }
         }

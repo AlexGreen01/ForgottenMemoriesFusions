@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPageForm));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnAllCards = new System.Windows.Forms.Button();
             this.lbTopTitle = new System.Windows.Forms.Label();
             this.btnHome = new System.Windows.Forms.Button();
             this.btnFusionForm = new System.Windows.Forms.Button();
             this.pictureLogo = new System.Windows.Forms.PictureBox();
             this.lbCreator = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
-            this.btnAllCards = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
             this.panelChildForm.SuspendLayout();
@@ -52,17 +52,31 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(1904, 70);
+            this.panelMenu.Size = new System.Drawing.Size(1184, 70);
             this.panelMenu.TabIndex = 0;
+            // 
+            // btnAllCards
+            // 
+            this.btnAllCards.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(3)))), ((int)(((byte)(3)))));
+            this.btnAllCards.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAllCards.Font = new System.Drawing.Font("Yu Mincho", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAllCards.ForeColor = System.Drawing.Color.White;
+            this.btnAllCards.Location = new System.Drawing.Point(972, 12);
+            this.btnAllCards.Name = "btnAllCards";
+            this.btnAllCards.Size = new System.Drawing.Size(200, 45);
+            this.btnAllCards.TabIndex = 5;
+            this.btnAllCards.Text = "View All Cards";
+            this.btnAllCards.UseVisualStyleBackColor = false;
+            this.btnAllCards.Click += new System.EventHandler(this.btnAllCards_Click);
             // 
             // lbTopTitle
             // 
             this.lbTopTitle.AutoSize = true;
-            this.lbTopTitle.Font = new System.Drawing.Font("Franklin Gothic Medium", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTopTitle.Font = new System.Drawing.Font("BIZ UDPMincho Medium", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTopTitle.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lbTopTitle.Location = new System.Drawing.Point(792, 20);
+            this.lbTopTitle.Location = new System.Drawing.Point(262, 20);
             this.lbTopTitle.Name = "lbTopTitle";
-            this.lbTopTitle.Size = new System.Drawing.Size(334, 34);
+            this.lbTopTitle.Size = new System.Drawing.Size(422, 29);
             this.lbTopTitle.TabIndex = 4;
             this.lbTopTitle.Text = "Forbidden Memories Tool";
             // 
@@ -70,8 +84,9 @@
             // 
             this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(3)))), ((int)(((byte)(3)))));
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Yu Mincho", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.Location = new System.Drawing.Point(240, 12);
+            this.btnHome.Location = new System.Drawing.Point(12, 12);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(200, 45);
             this.btnHome.TabIndex = 3;
@@ -83,8 +98,9 @@
             // 
             this.btnFusionForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(3)))), ((int)(((byte)(3)))));
             this.btnFusionForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFusionForm.Font = new System.Drawing.Font("Yu Mincho", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFusionForm.ForeColor = System.Drawing.Color.White;
-            this.btnFusionForm.Location = new System.Drawing.Point(477, 12);
+            this.btnFusionForm.Location = new System.Drawing.Point(728, 12);
             this.btnFusionForm.Name = "btnFusionForm";
             this.btnFusionForm.Size = new System.Drawing.Size(200, 45);
             this.btnFusionForm.TabIndex = 2;
@@ -94,10 +110,9 @@
             // 
             // pictureLogo
             // 
-            this.pictureLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureLogo.Image")));
-            this.pictureLogo.Location = new System.Drawing.Point(715, 16);
+            this.pictureLogo.Location = new System.Drawing.Point(400, 16);
             this.pictureLogo.Name = "pictureLogo";
             this.pictureLogo.Size = new System.Drawing.Size(485, 250);
             this.pictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -109,7 +124,7 @@
             this.lbCreator.AutoSize = true;
             this.lbCreator.Font = new System.Drawing.Font("Yu Mincho Demibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCreator.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lbCreator.Location = new System.Drawing.Point(711, 269);
+            this.lbCreator.Location = new System.Drawing.Point(396, 269);
             this.lbCreator.Name = "lbCreator";
             this.lbCreator.Size = new System.Drawing.Size(199, 21);
             this.lbCreator.TabIndex = 1;
@@ -123,27 +138,14 @@
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(0, 70);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1904, 331);
+            this.panelChildForm.Size = new System.Drawing.Size(1184, 331);
             this.panelChildForm.TabIndex = 1;
-            // 
-            // btnAllCards
-            // 
-            this.btnAllCards.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(3)))), ((int)(((byte)(3)))));
-            this.btnAllCards.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAllCards.ForeColor = System.Drawing.Color.White;
-            this.btnAllCards.Location = new System.Drawing.Point(1246, 12);
-            this.btnAllCards.Name = "btnAllCards";
-            this.btnAllCards.Size = new System.Drawing.Size(200, 45);
-            this.btnAllCards.TabIndex = 5;
-            this.btnAllCards.Text = "View All Cards";
-            this.btnAllCards.UseVisualStyleBackColor = false;
-            this.btnAllCards.Click += new System.EventHandler(this.btnAllCards_Click);
             // 
             // MainPageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 401);
+            this.ClientSize = new System.Drawing.Size(1184, 401);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

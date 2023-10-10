@@ -52,12 +52,6 @@
     <Compile Include="AllCardsForm.Designer.cs">
       <DependentUpon>AllCardsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CardEffects.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CardEffects.Designer.cs">
-      <DependentUpon>CardEffects.cs</DependentUpon>
-    </Compile>
     <Compile Include="Cards.cs" />
     <Compile Include="MainFusionForm.cs">
       <SubType>Form</SubType>
@@ -76,9 +70,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AllCardsForm.resx">
       <DependentUpon>AllCardsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CardEffects.resx">
-      <DependentUpon>CardEffects.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFusionForm.resx">
       <DependentUpon>MainFusionForm.cs</DependentUpon>
