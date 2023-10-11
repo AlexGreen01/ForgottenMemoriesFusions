@@ -69,6 +69,10 @@ namespace ForgottenMemoriesFusions
                 lstAllCards.Items[found].Selected = true;
                 lstAllCards.EnsureVisible(found);
             }
+            else
+            {
+                MessageBox.Show("Couldn't Find Card\nCheck Capitalisation and Spelling then Try Again", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lstAllCards_SelectedIndexChanged(object sender, EventArgs e)
