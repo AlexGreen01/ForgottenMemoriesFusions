@@ -149,6 +149,7 @@
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainPageForm";
             this.Text = "MainPageForm";
             this.Load += new System.EventHandler(this.MainPageForm_Load);

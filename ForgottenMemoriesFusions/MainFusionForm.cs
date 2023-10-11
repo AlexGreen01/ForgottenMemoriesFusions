@@ -19,7 +19,7 @@ namespace ForgottenMemoriesFusions
 
         private void FusionMainForm_Load(object sender, EventArgs e)
         {
-            string[] lines = File.ReadAllLines("AllCards.txt");
+            string[] lines = File.ReadAllLines("resources/AllCards.txt");
             foreach (string line in lines)
             {
                 string[] card = line.Split(',');
@@ -41,7 +41,7 @@ namespace ForgottenMemoriesFusions
             }
             if (!File.Exists("FusionObjects.bin"))
             {
-                lines = File.ReadAllLines("AllFusions.txt");
+                lines = File.ReadAllLines("resources/AllFusions.txt");
                 foreach (string line in lines)
                 {
                     string[] card = line.Split('/');
